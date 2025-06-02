@@ -3,10 +3,12 @@
 
 @theme {
   --color-primary: #2853c4;
+  --color-back: #030815;
 }
 
 *  {
   font-family: "Inter", sans-serif;
+  font-size: 18px;
 }
 
 :root {
@@ -22,9 +24,22 @@
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
   margin: 0 auto;
   max-width: 1024px;
 }
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+small {
+  font-size: 14px;
+  font-weight: 400;
+}
+

@@ -1,6 +1,6 @@
 export default function PhonesSidebar() {
   return (
-    <aside className="w-40 static flex-col gap-1">
+    <aside className="w-36 static flex-col gap-1">
         <div className="">
             <h3>Цена</h3>
         </div>

@@ -12,7 +12,7 @@ export default function Header() {
       <nav className="flex items-center gap-1">
         {!isMenuOpen && (
           <>
-            <button>
+            <button className="cursor-pointer">
               <img className="w-8 h-8" src="search.svg" alt="Поиск" />
             </button>
             <Link to="/">
@@ -40,7 +40,7 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className="cursor-pointer"
               >
-                <img className="w-8 h-8" src="x.svg" alt="Закрыть меню" />
+                <img className="w-8 h-8" src="close.svg" alt="Закрыть меню" />
               </button>
             </div>
           </aside>

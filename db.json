@@ -1,242 +1,244 @@
-[
-  {
-    "id": "galaxy-s21-001",
-    "model": "Galaxy S21",
-    "series": "S",
-    "storage": 128,
-    "ram": 8,
-    "color": "Phantom Gray",
-    "price": 799,
-    "inStock": true,
-    "releaseDate": "2021-01-29T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/s21-front.jpg",
-        "alt": "Samsung Galaxy S21 Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/s21-back.jpg",
-        "alt": "Samsung Galaxy S21 Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-s21-002",
-    "model": "Galaxy S21",
-    "series": "S",
-    "storage": 256,
-    "ram": 8,
-    "color": "Phantom White",
-    "price": 849,
-    "inStock": true,
-    "releaseDate": "2021-01-29T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/s21-white-front.jpg",
-        "alt": "Samsung Galaxy S21 White Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/s21-white-back.jpg",
-        "alt": "Samsung Galaxy S21 White Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-a52-001",
-    "model": "Galaxy A52",
-    "series": "A",
-    "storage": 128,
-    "ram": 6,
-    "color": "Awesome Black",
-    "price": 349,
-    "inStock": true,
-    "releaseDate": "2021-03-26T00:00:00Z",
-    "features": ["4G", "Dual SIM", "IP67", "Headphone Jack"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/a52-black-front.jpg",
-        "alt": "Samsung Galaxy A52 Black Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/a52-black-back.jpg",
-        "alt": "Samsung Galaxy A52 Black Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-a52-002",
-    "model": "Galaxy A52",
-    "series": "A",
-    "storage": 256,
-    "ram": 8,
-    "color": "Awesome Blue",
-    "price": 399,
-    "inStock": false,
-    "releaseDate": "2021-03-26T00:00:00Z",
-    "features": ["4G", "Dual SIM", "IP67", "Headphone Jack"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/a52-blue-front.jpg",
-        "alt": "Samsung Galaxy A52 Blue Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/a52-blue-back.jpg",
-        "alt": "Samsung Galaxy A52 Blue Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-a52-5g-001",
-    "model": "Galaxy A52 5G",
-    "series": "A",
-    "storage": 128,
-    "ram": 6,
-    "color": "Awesome Violet",
-    "price": 429,
-    "inStock": true,
-    "releaseDate": "2021-03-19T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP67", "Headphone Jack"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/a52-5g-violet-front.jpg",
-        "alt": "Samsung Galaxy A52 5G Violet Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/a52-5g-violet-back.jpg",
-        "alt": "Samsung Galaxy A52 5G Violet Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-a52-5g-002",
-    "model": "Galaxy A52 5G",
-    "series": "A",
-    "storage": 256,
-    "ram": 8,
-    "color": "Awesome White",
-    "price": 479,
-    "inStock": false,
-    "releaseDate": "2021-03-19T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP67", "Headphone Jack"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/a52-5g-white-front.jpg",
-        "alt": "Samsung Galaxy A52 5G White Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/a52-5g-white-back.jpg",
-        "alt": "Samsung Galaxy A52 5G White Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-note20-001",
-    "model": "Galaxy Note20",
-    "series": "Note",
-    "storage": 256,
-    "ram": 8,
-    "color": "Mystic Bronze",
-    "price": 999,
-    "inStock": true,
-    "releaseDate": "2020-08-21T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "S Pen"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/note20-bronze-front.jpg",
-        "alt": "Samsung Galaxy Note20 Bronze Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/note20-bronze-back.jpg",
-        "alt": "Samsung Galaxy Note20 Bronze Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-note20-002",
-    "model": "Galaxy Note20",
-    "series": "Note",
-    "storage": 256,
-    "ram": 8,
-    "color": "Mystic Green",
-    "price": 999,
-    "inStock": false,
-    "releaseDate": "2020-08-21T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "S Pen"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/note20-green-front.jpg",
-        "alt": "Samsung Galaxy Note20 Green Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/note20-green-back.jpg",
-        "alt": "Samsung Galaxy Note20 Green Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-s21-003",
-    "model": "Galaxy S21",
-    "series": "S",
-    "storage": 128,
-    "ram": 8,
-    "color": "Phantom Pink",
-    "price": 799,
-    "inStock": true,
-    "releaseDate": "2021-01-29T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/s21-pink-front.jpg",
-        "alt": "Samsung Galaxy S21 Pink Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/s21-pink-back.jpg",
-        "alt": "Samsung Galaxy S21 Pink Back View"
-      }
-    ]
-  },
-  {
-    "id": "galaxy-s21-004",
-    "model": "Galaxy S21",
-    "series": "S",
-    "storage": 256,
-    "ram": 8,
-    "color": "Phantom Violet",
-    "price": 849,
-    "inStock": false,
-    "releaseDate": "2021-01-29T00:00:00Z",
-    "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
-    "warrantyMonths": 24,
-    "images": [
-      {
-        "url": "https://example.com/images/s21-violet-front.jpg",
-        "alt": "Samsung Galaxy S21 Violet Front View",
-        "isPrimary": true
-      },
-      {
-        "url": "https://example.com/images/s21-violet-back.jpg",
-        "alt": "Samsung Galaxy S21 Violet Back View"
-      }
-    ]
-  }
-]
+{
+  "phones": [
+    {
+      "id": "galaxy-s21-001",
+      "model": "Galaxy S21",
+      "series": "S",
+      "storage": 128,
+      "ram": 8,
+      "color": "Phantom Gray",
+      "price": 799,
+      "inStock": true,
+      "releaseDate": "2021-01-29T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/s21-front.jpg",
+          "alt": "Samsung Galaxy S21 Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/s21-back.jpg",
+          "alt": "Samsung Galaxy S21 Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-s21-002",
+      "model": "Galaxy S21",
+      "series": "S",
+      "storage": 256,
+      "ram": 8,
+      "color": "Phantom White",
+      "price": 849,
+      "inStock": true,
+      "releaseDate": "2021-01-29T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/s21-white-front.jpg",
+          "alt": "Samsung Galaxy S21 White Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/s21-white-back.jpg",
+          "alt": "Samsung Galaxy S21 White Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-a52-001",
+      "model": "Galaxy A52",
+      "series": "A",
+      "storage": 128,
+      "ram": 6,
+      "color": "Awesome Black",
+      "price": 349,
+      "inStock": true,
+      "releaseDate": "2021-03-26T00:00:00Z",
+      "features": ["4G", "Dual SIM", "IP67", "Headphone Jack"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/a52-black-front.jpg",
+          "alt": "Samsung Galaxy A52 Black Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/a52-black-back.jpg",
+          "alt": "Samsung Galaxy A52 Black Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-a52-002",
+      "model": "Galaxy A52",
+      "series": "A",
+      "storage": 256,
+      "ram": 8,
+      "color": "Awesome Blue",
+      "price": 399,
+      "inStock": false,
+      "releaseDate": "2021-03-26T00:00:00Z",
+      "features": ["4G", "Dual SIM", "IP67", "Headphone Jack"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/a52-blue-front.jpg",
+          "alt": "Samsung Galaxy A52 Blue Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/a52-blue-back.jpg",
+          "alt": "Samsung Galaxy A52 Blue Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-a52-5g-001",
+      "model": "Galaxy A52 5G",
+      "series": "A",
+      "storage": 128,
+      "ram": 6,
+      "color": "Awesome Violet",
+      "price": 429,
+      "inStock": true,
+      "releaseDate": "2021-03-19T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP67", "Headphone Jack"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/a52-5g-violet-front.jpg",
+          "alt": "Samsung Galaxy A52 5G Violet Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/a52-5g-violet-back.jpg",
+          "alt": "Samsung Galaxy A52 5G Violet Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-a52-5g-002",
+      "model": "Galaxy A52 5G",
+      "series": "A",
+      "storage": 256,
+      "ram": 8,
+      "color": "Awesome White",
+      "price": 479,
+      "inStock": false,
+      "releaseDate": "2021-03-19T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP67", "Headphone Jack"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/a52-5g-white-front.jpg",
+          "alt": "Samsung Galaxy A52 5G White Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/a52-5g-white-back.jpg",
+          "alt": "Samsung Galaxy A52 5G White Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-note20-001",
+      "model": "Galaxy Note20",
+      "series": "Note",
+      "storage": 256,
+      "ram": 8,
+      "color": "Mystic Bronze",
+      "price": 999,
+      "inStock": true,
+      "releaseDate": "2020-08-21T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "S Pen"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/note20-bronze-front.jpg",
+          "alt": "Samsung Galaxy Note20 Bronze Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/note20-bronze-back.jpg",
+          "alt": "Samsung Galaxy Note20 Bronze Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-note20-002",
+      "model": "Galaxy Note20",
+      "series": "Note",
+      "storage": 256,
+      "ram": 8,
+      "color": "Mystic Green",
+      "price": 999,
+      "inStock": false,
+      "releaseDate": "2020-08-21T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "S Pen"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/note20-green-front.jpg",
+          "alt": "Samsung Galaxy Note20 Green Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/note20-green-back.jpg",
+          "alt": "Samsung Galaxy Note20 Green Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-s21-003",
+      "model": "Galaxy S21",
+      "series": "S",
+      "storage": 128,
+      "ram": 8,
+      "color": "Phantom Pink",
+      "price": 799,
+      "inStock": true,
+      "releaseDate": "2021-01-29T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/s21-pink-front.jpg",
+          "alt": "Samsung Galaxy S21 Pink Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/s21-pink-back.jpg",
+          "alt": "Samsung Galaxy S21 Pink Back View"
+        }
+      ]
+    },
+    {
+      "id": "galaxy-s21-004",
+      "model": "Galaxy S21",
+      "series": "S",
+      "storage": 256,
+      "ram": 8,
+      "color": "Phantom Violet",
+      "price": 849,
+      "inStock": false,
+      "releaseDate": "2021-01-29T00:00:00Z",
+      "features": ["5G", "Dual SIM", "IP68", "Wireless Charging"],
+      "warrantyMonths": 24,
+      "images": [
+        {
+          "url": "https://example.com/images/s21-violet-front.jpg",
+          "alt": "Samsung Galaxy S21 Violet Front View",
+          "isPrimary": true
+        },
+        {
+          "url": "https://example.com/images/s21-violet-back.jpg",
+          "alt": "Samsung Galaxy S21 Violet Back View"
+        }
+      ]
+    }
+  ]
+}

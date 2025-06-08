@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { SearchModal } from "../../features/search/SearchModal";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <header className="flex w-full justify-between items-center px-4 h-[100px] relative">
@@ -12,7 +16,7 @@ export default function Header() {
       <nav className="flex items-center gap-1">
         {!isMenuOpen && (
           <>
-            <button className="cursor-pointer">
+            <button className="cursor-pointer" onClick={openModal}>
               <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
             </button>
             <Link to="/">
@@ -46,6 +50,11 @@ export default function Header() {
           </aside>
         )}
       </nav>
+       {isModalOpen && (
+        <SearchModal
+          onClose={closeModal}
+        />
+      )}
     </header>
   );
 }

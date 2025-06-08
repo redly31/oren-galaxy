@@ -10,7 +10,7 @@ type PhoneCardProps = {
 export default function PhoneCard(props: PhoneCardProps) {
   const { data, children } = props;
   return (
-    <article className="w-56 mt-8 flex flex-col justify-between">
+    <article className="w-56 mt-4 flex flex-col justify-between">
       <section className="">
         <img
           src={data.image.url}

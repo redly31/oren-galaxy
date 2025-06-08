@@ -1,7 +1,6 @@
 interface PhoneImage {
   url: string;
-  alt?: string;
-  isPrimary?: boolean;
+  alt: string;
 }
 
 export interface Phone {
@@ -13,8 +12,8 @@ export interface Phone {
   color: string;
   price: number;
   inStock: boolean;
-  releaseDate: Date;
+  releaseDate: string;
   features: string[];
   warrantyMonths?: number;
-  images: PhoneImage[];
+  image: PhoneImage;
 }

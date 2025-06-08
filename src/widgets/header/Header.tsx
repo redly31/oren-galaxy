@@ -13,25 +13,25 @@ export default function Header() {
         {!isMenuOpen && (
           <>
             <button className="cursor-pointer">
-              <img className="w-8 h-8" src="search.svg" alt="Поиск" />
+              <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
             </button>
             <Link to="/">
-              <img className="w-8 h-8" src="gear.svg" alt="Админ-панель" />
+              <img className="w-8 h-8" src="/gear.svg" alt="Админ-панель" />
             </Link>
             <Link to="/">
-              <img className="w-8 h-8" src="cart.svg" alt="Корзина" />
+              <img className="w-8 h-8" src="/cart.svg" alt="Корзина" />
             </Link>
             <button
               onClick={() => setIsMenuOpen(true)}
               className="cursor-pointer"
             >
-              <img className="w-8 h-8" src="menu.svg" alt="Открыть меню" />
+              <img className="w-8 h-8" src="/menu.svg" alt="Открыть меню" />
             </button>
           </>
         )}
         {isMenuOpen && (
           <aside className="absolute right-0 top-1/3 w-40 bg-back px-4">
-            <div className="flex items-start justify-between">
+            <nav className="flex items-start justify-between">
               <div className="flex flex-col gap-1">
                 <Link to="/">О нас</Link>
                 <Link to="/">Гайд</Link>
@@ -40,9 +40,9 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className="cursor-pointer"
               >
-                <img className="w-8 h-8" src="close.svg" alt="Закрыть меню" />
+                <img className="w-8 h-8" src="/close.svg" alt="Закрыть меню" />
               </button>
-            </div>
+            </nav>
           </aside>
         )}
       </nav>

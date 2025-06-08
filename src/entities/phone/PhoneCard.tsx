@@ -9,17 +9,16 @@ type PhoneCardProps = {
 
 export default function PhoneCard(props: PhoneCardProps) {
   const { data, children } = props;
-  console.log(data);
   return (
     <article className="w-56 mt-8 flex flex-col justify-between">
       <section className="">
         <img
-          src="https://img.joomcdn.net/ecbe076f5eacca9811f5f90c2de1a10e4f1aa6b4_original.jpeg"
-          alt=""
+          src={data.image.url}
+          alt={data.image.alt}
           className="object-cover h-60 w-full"
         />
         <h3 className="hover:text-primary transition-colors mt-2">
-          <Link to="/">
+          <Link to={`/phones/${data.id}`}>
             Смартфон Samsung {data.model} {data.ram}/{data.storage} ГБ{" "}
             {data.color}
           </Link>

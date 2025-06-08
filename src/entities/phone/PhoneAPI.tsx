@@ -1,11 +1,12 @@
 import axios from 'axios'
+import type { Phone } from './Phone';
 
-export default async function getPhone() {
-  try {
-    const response = await axios.get('http://localhost:3000/phones');
-    return response;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
+export async function getPhones(): Promise<Phone[]> {
+  const response = await axios.get<Phone[]>('http://localhost:3000/phones');
+  return response.data;
+}
+
+export async function getPhone(id: string): Promise<Phone> {
+  const response = await axios.get<Phone>(`http://localhost:3000/phones/${id}`);
+  return response.data;
 }

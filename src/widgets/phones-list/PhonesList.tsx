@@ -4,12 +4,14 @@ import PhoneCard from "../../entities/phone/PhoneCard";
 import AddToCartButton from "../../features/add-to-cart-button/AddToCartButton";
 import PurchaseButton from "../../features/purchase-button/PurchaseButton";
 import type { Phone } from "../../entities/phone/Phone";
+import Loading from "../../shared/components/loading/Loading";
+import ErrorSign from "../../shared/components/error/ErrorSign";
 
 export default function PhonesList() {
   const { data, isLoading, isError } = useQuery<Phone[]>("phones", getPhones);
 
-  if (isLoading) return <h1>Загрузка...</h1>;
-  if (isError || !Array.isArray(data)) return <h1>Ошибка загрузки</h1>;
+  if (isLoading) return <Loading/>;
+  if (isError || !Array.isArray(data)) return <ErrorSign/>;
 
   return (
     <div className="">

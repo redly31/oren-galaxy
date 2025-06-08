@@ -5,6 +5,8 @@ import { getPhone } from "../../entities/phone/PhoneAPI";
 import PurchaseButton from "../../features/purchase-button/PurchaseButton";
 import AddToCartButton from "../../features/add-to-cart-button/AddToCartButton";
 import type { Phone } from "../../entities/phone/Phone";
+import Loading from "../../shared/components/loading/Loading";
+import ErrorSign from "../../shared/components/error/ErrorSign";
 
 export default function PhonePage() {
   const { id } = useParams<{ id: string }>();
@@ -13,8 +15,8 @@ export default function PhonePage() {
     () => getPhone(id as string),
   );
 
-  if (isLoading) return <div>Загрузка...</div>;
-  if (isError || !data) return <h1>Страница не найдена</h1>;
+  if (isLoading) return <Loading/>;
+  if (isError || !data) return <ErrorSign/>;
 
   return (
     <PhoneDescription data={data}>

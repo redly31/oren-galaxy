@@ -30,11 +30,11 @@ export default function Header() {
           </>
         )}
         {isMenuOpen && (
-          <aside className="absolute right-0 top-1/3 w-40 bg-back px-4">
+          <aside className="absolute right-0 top-1/3 w-48 bg-back px-4">
             <nav className="flex items-start justify-between">
               <div className="flex flex-col gap-1">
-                <Link to="/">О нас</Link>
-                <Link to="/">Гайд</Link>
+                <Link to="/about">О нас</Link>
+                <Link to="/guide">Как выбрать?</Link>
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}

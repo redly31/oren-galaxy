@@ -13,13 +13,13 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
   const [searchInputValue, setSearchInputValue] = useState<string>("");
 
   return (
-    <div
+    <section
       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
       onClick={onClose}
       style={{ backgroundColor: "rgba(3, 8, 21, 0.8)" }}
     >
       <div
-        className="bg-back max-w-md w-full flex items-center"
+        className="bg-back max-w-md w-full flex items-stretch"
         onClick={(e) => e.stopPropagation()}
       >
         <input
@@ -27,7 +27,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
           onChange={(e) => setSearchInputValue(e.target.value)}
           type="text"
           placeholder="Поиск..."
-          className="w-full h-full py-2 px-4 outline-none"
+          className="w-full px-4 py-2 outline-none border-4 border-text"
         />
         <button
           onClick={() => {
@@ -41,6 +41,6 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
           {/* сюда фокус */}
         </button>
       </div>
-    </div>
+    </section>
   );
 };

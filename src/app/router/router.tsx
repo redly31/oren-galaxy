@@ -7,6 +7,8 @@ import AboutPage from "../../pages/about/AboutPage";
 import ErrorPage from "../../pages/error/ErrorPage";
 import CartPage from "../../pages/cart/CartPage";
 import AdminPage from "../../pages/admin/AdminPage";
+import PaymentPage from "../../pages/payment/PaymentPage";
+import SuccessPaymentPage from "../../pages/success-payment/SuccessPaymentPage";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminPage />
+      },
+      {
+        path: "/payment",
+        element: <PaymentPage />
+      },
+      {
+        path: "/payment/success",
+        element: <SuccessPaymentPage/>
       }
     ],
   },

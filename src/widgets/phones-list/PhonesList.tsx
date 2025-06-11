@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { getPhones } from "../../entities/phone/PhoneAPI";
 import PhoneCard from "../../entities/phone/PhoneCard";
 import AddToCartButton from "../../features/add-to-cart-button/AddToCartButton";
-import PurchaseButton from "../../features/purchase-button/PurchaseButton";
+import PaymentButton from "../../features/payment-button/PaymentButton";
 import type { Phone } from "../../entities/phone/Phone";
 import Loading from "../../shared/components/loading/Loading";
 import ErrorSign from "../../shared/components/error/ErrorSign";
@@ -40,7 +40,7 @@ export default function PhonesList() {
         <div className="grid justify-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {filteredPhones.map((phone) => (
             <PhoneCard data={phone} key={phone.id}>
-              <PurchaseButton />
+              <PaymentButton productId={phone.id}/>
               <AddToCartButton productId={phone.id}/>
             </PhoneCard>
           ))}

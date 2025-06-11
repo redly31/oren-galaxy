@@ -22,7 +22,7 @@ export default function Header() {
             <Link to="/">
               <img className="w-8 h-8" src="/gear.svg" alt="Админ-панель" />
             </Link>
-            <Link to="/">
+            <Link to="/cart">
               <img className="w-8 h-8" src="/cart.svg" alt="Корзина" />
             </Link>
             <button

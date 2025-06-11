@@ -12,7 +12,7 @@ import { searchAtom } from "../../features/search/searchAtom";
 export default function PhonesList() {
   const { data, isLoading, isError } = useQuery<Phone[]>("phones", getPhones);
   const [search, setSearch] = useAtom(searchAtom);
-  console.log(search);
+
   if (isLoading) return <Loading />;
   if (isError || !Array.isArray(data)) return <ErrorSign />;
 
@@ -41,7 +41,7 @@ export default function PhonesList() {
           {filteredPhones.map((phone) => (
             <PhoneCard data={phone} key={phone.id}>
               <PurchaseButton />
-              <AddToCartButton />
+              <AddToCartButton productId={phone.id}/>
             </PhoneCard>
           ))}
         </div>

@@ -19,7 +19,7 @@ export default function Header() {
             <button className="cursor-pointer" onClick={openModal}>
               <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
             </button>
-            <Link to="/">
+            <Link to="/admin">
               <img className="w-8 h-8" src="/gear.svg" alt="Админ-панель" />
             </Link>
             <Link to="/cart">
@@ -37,8 +37,8 @@ export default function Header() {
           <aside className="absolute right-0 top-1/3 w-48 bg-back px-4">
             <nav className="flex items-start justify-between">
               <div className="flex flex-col gap-1">
-                <Link to="/about">О нас</Link>
-                <Link to="/guide">Как выбрать?</Link>
+                <Link to="/about" onClick={() => setIsMenuOpen(false)}>О нас</Link>
+                <Link to="/guide" onClick={() => setIsMenuOpen(false)}>Как выбрать?</Link>
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}

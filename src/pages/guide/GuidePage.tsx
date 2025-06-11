@@ -1,6 +1,6 @@
 export default function GuidePage() {
   return (
-    <article className="px-4 mb-4">
+    <article className="">
       <header>
         <img
           src="https://avatars.mds.yandex.net/i?id=76ddbdd036ae6a7d8d01055f4cec48ae_l-10199799-images-thumbs&n=13"

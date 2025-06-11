@@ -3,7 +3,7 @@ import PhonesSidebar from "../../widgets/phones-sidebar/PhonesSidebar";
 
 export default function HomePage() {
   return (
-    <section className="px-4 flex gap-4 justify-between">
+    <section className="flex gap-4 justify-between">
       <div className="w-2/10">
         <PhonesSidebar/>
       </div>

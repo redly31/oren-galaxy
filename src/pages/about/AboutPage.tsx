@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <article className="px-4 mb-4">
+    <article className="">
       <header>
         <img
           src="https://avatars.mds.yandex.net/i?id=a5bd9b68b47866f1137d0ffbe594316d_l-5246115-images-thumbs&n=13"

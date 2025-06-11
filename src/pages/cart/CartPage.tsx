@@ -12,7 +12,7 @@ export default function CartPage() {
   if (isError || !Array.isArray(items)) return <ErrorSign />;
 
   return (
-    <section className="px-4">
+    <section className="">
       <h1>Корзина</h1>
       <div className="grid justify-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {items.map((phone) => (

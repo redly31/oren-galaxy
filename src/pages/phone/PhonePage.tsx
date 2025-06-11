@@ -21,7 +21,7 @@ export default function PhonePage() {
   return (
     <PhoneDescription data={data}>
       <PurchaseButton />
-      <AddToCartButton />
+      <AddToCartButton productId={data.id}/>
     </PhoneDescription>
   );
 }

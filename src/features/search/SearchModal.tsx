@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { searchAtom } from "./searchAtom";
 import { useSetAtom } from "jotai";
+import { useNavigate } from "react-router-dom";
 
 interface SearchModalProps {
   onClose: () => void;
@@ -8,6 +9,7 @@ interface SearchModalProps {
 
 export const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
   const setSearch = useSetAtom(searchAtom);
+  const navigate = useNavigate()
   const [searchInputValue, setSearchInputValue] = useState<string>("");
 
   return (
@@ -31,6 +33,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onClose }) => {
           onClick={() => {
             onClose();
             setSearch(searchInputValue);
+            navigate("/")
           }}
           className="bg-primary p-2 border-primary border-4 hover:bg-transparent transition-colors cursor-pointer"
         >

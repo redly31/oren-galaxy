@@ -20,7 +20,7 @@ export default function CartPhonesList() {
           <RemoveFromCartButton productId={phone.id} />
         </CartPhoneCard>
       ))}
-      {items.length === 0 && <h1 className="flex mt-8">Здесь ничего нет😢</h1>}
+      {items.length === 0 && <h2 className="flex mt-8">Здесь ничего нет😢</h2>}
     </div>
   );
 }

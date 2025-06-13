@@ -11,11 +11,11 @@ export default function CartPhoneCard(props: PhoneCardProps) {
     const { data, children } = props;
   return (
     <article className="mt-4 flex flex-col justify-between">
-      <section className="">
+      <section className="flex flex-col items-center">
         <img
           src={data.image.url}
           alt={data.image.alt}
-          className="object-cover h-80 lg:h-60 w-full"
+          className="h-60 border-4 border-white"
         />
         <h3 className="hover:text-primary transition-colors mt-2">
           <Link to={`/phones/${data.id}`}>

@@ -11,12 +11,18 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.1.8
         version: 4.1.8(vite@6.3.5(jiti@2.4.2)(lightningcss@1.30.1))
+      '@tanstack/query-core':
+        specifier: ^5.80.7
+        version: 5.80.7
       axios:
         specifier: ^1.9.0
         version: 1.9.0
       jotai:
         specifier: ^2.12.5
         version: 2.12.5(@types/react@19.1.6)(react@19.1.0)
+      jotai-tanstack-query:
+        specifier: ^0.9.0
+        version: 0.9.0(@tanstack/query-core@5.80.7)(jotai@2.12.5(@types/react@19.1.6)(react@19.1.0))
       json-server:
         specifier: 1.0.0-beta.3
         version: 1.0.0-beta.3
@@ -596,6 +602,9 @@ packages:
     resolution: {integrity: sha512-CQ+I8yxNV5/6uGaJjiuymgw0kEQiNKRinYbZXPdx1fk5WgiyReG0VaUx/Xq6aVNSUNJFzxm6o8FNKS5aMaim5A==}
     peerDependencies:
       vite: ^5.2.0 || ^6
+
+  '@tanstack/query-core@5.80.7':
+    resolution: {integrity: sha512-s09l5zeUKC8q7DCCCIkVSns8zZrK4ZDT6ryEjxNBFi68G4z2EBobBS7rdOY3r6W1WbUDpc1fe5oY+YO/+2UVUg==}
 
   '@tinyhttp/accepts@2.2.3':
     resolution: {integrity: sha512-9pQN6pJAJOU3McmdJWTcyq7LLFW8Lj5q+DadyKcvp+sxMkEpktKX5sbfJgJuOvjk6+1xWl7pe0YL1US1vaO/1w==}
@@ -1187,6 +1196,12 @@ packages:
   jiti@2.4.2:
     resolution: {integrity: sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==}
     hasBin: true
+
+  jotai-tanstack-query@0.9.0:
+    resolution: {integrity: sha512-8n7/xV14+ZE63dyqngtmqs6aV1bNnQJF9bJN5Bj70USc2cMFRmsVhGGzL1cSvp5E/xXasU37czFFaZ0vavmyfA==}
+    peerDependencies:
+      '@tanstack/query-core': '*'
+      jotai: '>=2.0.0'
 
   jotai@2.12.5:
     resolution: {integrity: sha512-G8m32HW3lSmcz/4mbqx0hgJIQ0ekndKWiYP7kWVKi0p6saLXdSoye+FZiOFyonnd7Q482LCzm8sMDl7Ar1NWDw==}
@@ -2129,6 +2144,8 @@ snapshots:
       tailwindcss: 4.1.8
       vite: 6.3.5(jiti@2.4.2)(lightningcss@1.30.1)
 
+  '@tanstack/query-core@5.80.7': {}
+
   '@tinyhttp/accepts@2.2.3':
     dependencies:
       mime: 4.0.4
@@ -2773,6 +2790,11 @@ snapshots:
   isexe@2.0.0: {}
 
   jiti@2.4.2: {}
+
+  jotai-tanstack-query@0.9.0(@tanstack/query-core@5.80.7)(jotai@2.12.5(@types/react@19.1.6)(react@19.1.0)):
+    dependencies:
+      '@tanstack/query-core': 5.80.7
+      jotai: 2.12.5(@types/react@19.1.6)(react@19.1.0)
 
   jotai@2.12.5(@types/react@19.1.6)(react@19.1.0):
     optionalDependencies:

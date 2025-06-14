@@ -10,7 +10,7 @@ type PhoneCardProps = {
 export default function CartPhoneCard(props: PhoneCardProps) {
     const { data, children } = props;
   return (
-    <article className="mt-4 flex flex-col justify-between">
+    <article className="mt-4 flex flex-col justify-between max-w-xs">
       <section className="flex flex-col items-center">
         <img
           src={data.image.url}

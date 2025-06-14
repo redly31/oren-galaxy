@@ -6,7 +6,7 @@ import { searchAtom } from "../search/searchAtom";
 import { sortingAtom } from "../sorting/sortingAtom";
 
 
-export const priceFilterAtom = atom<[number, number]>([0, 500000])
+export const priceFilterAtom = atom<[number, number]>([0, 999000])
 export const storageFilterAtom = atom<number[]>([])
 export const modelFilterAtom   = atom<string[]>([])
 export const colorFilterAtom   = atom<string[]>([])

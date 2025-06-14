@@ -1,145 +1,38 @@
-import { useAtom } from "jotai";
-import { sortingAtom } from "../../features/sorting/sortingAtom";
-import type { SortOption } from "../../features/sorting/SortOption";
-import {
-  priceFilterAtom,
-  storageFilterAtom,
-  modelFilterAtom,
-  colorFilterAtom,
-  inStockFilterAtom,
-  storageOptionsAtom,
-  modelOptionsAtom,
-  colorOptionsAtom,
-} from "../../features/filter/filterAtom";
+import { useState } from "react";
+import { Filters } from "../../features/filter/filters";
+import { Search } from "../../features/search/Search";
+import { Sorting } from "../../features/sorting/Sorting";
 
 export default function PhonesSidebar() {
-  const [price, setPrice] = useAtom(priceFilterAtom);
-  const [storages, toggleSto] = useAtom(storageFilterAtom);
-  const [models, toggleModel] = useAtom(modelFilterAtom);
-  const [colors, toggleColor] = useAtom(colorFilterAtom);
-  const [inStock, setInStock] = useAtom(inStockFilterAtom);
-  const storageOptions = useAtom(storageOptionsAtom)[0];
-  const modelOptions = useAtom(modelOptionsAtom)[0];
-  const colorOptions = useAtom(colorOptionsAtom)[0];
-  const [sortBy, setSortBy] = useAtom(sortingAtom);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
+  const [isSortingOpen, setIsSortingOpen] = useState(false);
+  const openSearch = () => setIsSearchOpen(true);
+  const closeSearch = () => setIsSearchOpen(false);
+
+  const openSorting = () => setIsSortingOpen(true);
+  const closeSorting = () => setIsSortingOpen(false);
+
+  const openFilters = () => setIsFiltersOpen(true);
+  const closeFilters = () => setIsFiltersOpen(false);
 
   return (
     <aside className="flex flex-col gap-2">
-      <section>
-        <h3>Цена</h3>
-        <div>
-          <input
-            className="w-36"
-            type="number"
-            value={price[0]}
-            onChange={(e) => setPrice([+e.target.value, price[1]])}
-          />
-          <input
-            className="w-36"
-            type="number"
-            value={price[1]}
-            onChange={(e) => setPrice([price[0], +e.target.value])}
-          />
-        </div>
+      <section className="flex gap-2">
+        <button className="cursor-pointer" onClick={openSearch}>
+          <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
+        </button>
+        <button className="cursor-pointer" onClick={openSorting}>
+          <img className="w-8 h-8" src="/sorting.svg" alt="Сортировка" />
+        </button>
+        <button className="cursor-pointer" onClick={openFilters}>
+          <img className="w-8 h-8" src="/filter.svg" alt="Сортировка" />
+        </button>
       </section>
 
-      <section>
-        <h3>Сортировка</h3>
-        <select
-          className="outline-none bg-back appearance-none p-1 text-center cursor-pointer"
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as SortOption)}
-        >
-          <option value="priceAsc">Цена ↑</option>
-          <option value="priceDesc">Цена ↓</option>
-          <option value="releaseDate">Дата релиза</option>
-        </select>
-      </section>
-
-      <section>
-        <h3>Память</h3>
-        <ul className="flex flex-col">
-          {storageOptions.map((s) => (
-            <li key={s}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={storages.includes(s)}
-                  onChange={() => {
-                    const next = storages.includes(s)
-                      ? storages.filter((x) => x !== s)
-                      : [...storages, s];
-                    toggleSto(next);
-                  }}
-                />
-                {s} ГБ
-              </label>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h3>Модели</h3>
-        <ul className="flex flex-col">
-          {modelOptions.map((s) => (
-            <li key={s}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={models.includes(s)}
-                  onChange={() => {
-                    const next = models.includes(s)
-                      ? models.filter((x) => x !== s)
-                      : [...models, s];
-                    toggleModel(next);
-                  }}
-                />
-                {s}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h3>Цвета</h3>
-        <ul className="flex flex-col">
-          {colorOptions.map((s) => (
-            <li key={s}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={colors.includes(s)}
-                  onChange={() => {
-                    const next = colors.includes(s)
-                      ? colors.filter((x) => x !== s)
-                      : [...colors, s];
-                    toggleColor(next);
-                  }}
-                />
-                {s}
-              </label>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h3>Наличие</h3>
-        <ul>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                checked={inStock}
-                onChange={(e) => setInStock(e.target.checked)}
-              />
-              В наличии
-            </label>
-          </li>
-        </ul>
-      </section>
+      {isSortingOpen && <Sorting onClose={closeSorting} />}
+      {isSearchOpen && <Search onClose={closeSearch} />}
+      {isFiltersOpen && <Filters onClose={closeFilters} />}
     </aside>
   );
 }

@@ -11,7 +11,7 @@ export default function AddToCartButton({productId}: {productId: string}) {
   }
 
   return (
-    <button onClick={() => addToCart(productId)} className="px-4 py-2 mt-2 transition-colors cursor-pointer bg-transparent border-primary border-4 hover:bg-primary">
+    <button onClick={() => addToCart(productId)} className="px-4 py-1 min-[450px]:py-2 mt-2 transition-colors cursor-pointer bg-transparent border-primary border-4 hover:bg-primary">
       В корзину
     </button>
   );

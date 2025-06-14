@@ -3,13 +3,9 @@ import PhonesSidebar from "../../widgets/phones-sidebar/PhonesSidebar";
 
 export default function HomePage() {
   return (
-    <section className="flex gap-4 justify-between">
-      <div className="w-2/10">
-        <PhonesSidebar/>
-      </div>
-      <div className="w-8/10">
-        <PhonesList/>
-      </div>
+    <section className="flex flex-col gap-2">
+      <PhonesSidebar/>
+      <PhonesList/>
     </section>
   )
 }

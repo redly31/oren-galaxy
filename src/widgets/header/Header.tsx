@@ -19,9 +19,6 @@ export default function Header() {
             <button className="cursor-pointer" onClick={openModal}>
               <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
             </button>
-            <Link to="/admin">
-              <img className="w-8 h-8" src="/gear.svg" alt="Админ-панель" />
-            </Link>
             <Link to="/cart">
               <img className="w-8 h-8" src="/cart.svg" alt="Корзина" />
             </Link>

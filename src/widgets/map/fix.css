@@ -1,0 +1,3 @@
+ymaps[class$="map"]:first-child:not(:last-child) {
+    display: none;
+}

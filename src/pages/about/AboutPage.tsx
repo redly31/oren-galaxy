@@ -1,3 +1,5 @@
+import MapWidget from "../../widgets/map/MapWidget";
+
 export default function AboutPage() {
   return (
     <article className="">
@@ -44,6 +46,9 @@ export default function AboutPage() {
           поделиться знаниями на простом языке. Мы сами учимся и знаем, как
           важно иметь надёжного помощника при выборе техники.
         </p>
+
+        <h3>Где магазины</h3>
+        <MapWidget/>
       </section>
     </article>
   );

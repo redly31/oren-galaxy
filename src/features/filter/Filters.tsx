@@ -31,20 +31,20 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
       style={{ backgroundColor: "rgba(3, 8, 21, 0.8)" }}
     >
       <div
-        className="bg-back flex flex-col gap-2 px-4 py-2 border-4 border-text "
+        className="bg-back flex flex-col w-96 gap-2 px-4 py-2 border-4 border-text "
         onClick={(e) => e.stopPropagation()}
       >
         <section>
           <h3>Цена</h3>
           <div className="flex gap-2 mt-1 flex-col">
             <input
-              className="w-36 px-2 py-1 border-4 border-text outline-none"
+              className="px-2 py-1 border-4 border-text outline-none"
               type="number"
               placeholder={price[0].toString()}
               onChange={(e) => setPrice([+e.target.value, price[1]])}
             />
             <input
-              className="w-36 px-2 py-1 border-4 border-text outline-none"
+              className="px-2 py-1 border-4 border-text outline-none"
               type="number"
               placeholder={price[1].toString()}
               onChange={(e) => setPrice([price[0], +e.target.value])}

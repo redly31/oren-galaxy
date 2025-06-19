@@ -21,6 +21,7 @@
     "react-dom": "^19.1.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^7.6.1",
+    "react-yandex-maps": "^4.6.0",
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {

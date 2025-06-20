@@ -4,14 +4,14 @@ import PaymentButton from "../../features/payment-button/PaymentButton";
 import type { Phone } from "../../entities/phone/Phone";
 import { useAtom } from "jotai";
 import { searchAtom } from "../../features/search/searchAtom";
-import { filteredSortedPhonesAtom } from "../../features/filter/filterAtom";
 import Loading from "../../shared/components/loading/Loading";
+import { filteredSortedPhonesAtom } from "../../features/filter/filteredSortedPhonesAtom";
 
 export default function PhonesList() {
   const [search, setSearch] = useAtom(searchAtom);
   const [phones] = useAtom(filteredSortedPhonesAtom);
 
-  if(phones.length === 0) {
+  if(!search && phones.length === 0) {
     return <Loading/>
   }
 

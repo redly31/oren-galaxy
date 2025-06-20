@@ -1,14 +1,6 @@
 import { useAtom } from "jotai";
-import {
-  priceFilterAtom,
-  storageFilterAtom,
-  modelFilterAtom,
-  colorFilterAtom,
-  inStockFilterAtom,
-  storageOptionsAtom,
-  modelOptionsAtom,
-  colorOptionsAtom,
-} from "../../features/filter/filterAtom";
+import { priceFilterAtom, storageFilterAtom, modelFilterAtom, colorFilterAtom, inStockFilterAtom } from "./filterAtoms";
+import { storageOptionsAtom, modelOptionsAtom, colorOptionsAtom } from "./filterOptionsAtoms";
 
 interface SearchModalProps {
   onClose: () => void;

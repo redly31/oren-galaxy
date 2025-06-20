@@ -15,6 +15,7 @@ export const inStockFilterAtom = atom(false)
 export const phonesAtom = atomWithQuery<Phone[]>(() => ({
   queryKey: ['phones'],
   queryFn: getPhones,
+  suspense: true,
 }))
 
 export const phonesDataAtom = atom((get) => get(phonesAtom).data ?? [])

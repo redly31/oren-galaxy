@@ -11,6 +11,10 @@ export default function PhonesList() {
   const [search, setSearch] = useAtom(searchAtom);
   const [phones] = useAtom(filteredSortedPhonesAtom);
 
+  if(phones.length === 0) {
+    return <Loading/>
+  }
+
   return (
     <div className="">
       <h1>Каталог</h1>
@@ -25,21 +29,16 @@ export default function PhonesList() {
           </button>
         </div>
       )}
-
-      {phones.length === 0 ? (
-        <Loading />
-      ) : (
-        <div className="w-full flex md:justify-start justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {phones.map((phone: Phone) => (
-              <PhoneCard data={phone} key={phone.id}>
-                <PaymentButton productId={phone.id} />
-                <AddToCartButton productId={phone.id} />
-              </PhoneCard>
-            ))}
-          </div>
+      <div className="w-full flex md:justify-start justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          {phones.map((phone: Phone) => (
+            <PhoneCard data={phone} key={phone.id}>
+              <PaymentButton productId={phone.id} />
+              <AddToCartButton productId={phone.id} />
+            </PhoneCard>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }

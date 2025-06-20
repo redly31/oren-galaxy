@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Filters } from "../../features/filter/filters";
+import { Filters } from "../../features/filter/Filters";
 import { Search } from "../../features/search/Search";
 import { Sorting } from "../../features/sorting/Sorting";
 

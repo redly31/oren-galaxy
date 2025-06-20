@@ -15,7 +15,7 @@ const baseCartAtom = atom<string[]>(loadCart())
 
 export const cartAtom = atom(
   (get) => get(baseCartAtom),
-  (get, set, newCart: string[]) => {
+  (_, set, newCart: string[]) => {
     set(baseCartAtom, newCart)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newCart))
   }

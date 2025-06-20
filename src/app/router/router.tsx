@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import Layout from "../layout/Layout";
 import HomePage from "../../pages/home/HomePage";
-import PhonePage from "../../pages/phone/PhonePage";
-import GuidePage from "../../pages/guide/GuidePage";
-import AboutPage from "../../pages/about/AboutPage";
 import ErrorPage from "../../pages/error/ErrorPage";
-import CartPage from "../../pages/cart/CartPage";
-import PaymentPage from "../../pages/payment/PaymentPage";
-import SuccessPaymentPage from "../../pages/success-payment/SuccessPaymentPage";
+
+const GuidePage = lazy(() => import('../../pages/guide/GuidePage'));
+const AboutPage = lazy(() => import('../../pages/about/AboutPage'));
+const PhonePage = lazy(() => import('../../pages/phone/PhonePage'));
+const CartPage = lazy(() => import('../../pages/cart/CartPage'));
+const PaymentPage = lazy(() => import('../../pages/payment/PaymentPage'));
+const SuccessPaymentPage = lazy(() => import('../../pages/success-payment/SuccessPaymentPage'));
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/guide",
-        element: <GuidePage />,
+        element: <GuidePage/>,
       },
       {
         path: "/about",

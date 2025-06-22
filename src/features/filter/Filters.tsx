@@ -1,20 +1,57 @@
+import React, { useEffect, useRef } from "react";
 import { useAtom } from "jotai";
-import { priceFilterAtom, storageFilterAtom, modelFilterAtom, colorFilterAtom, inStockFilterAtom } from "./filterAtoms";
-import { storageOptionsAtom, modelOptionsAtom, colorOptionsAtom } from "./filterOptionsAtoms";
+import {
+  priceFilterAtom,
+  storageFilterAtom,
+  modelFilterAtom,
+  colorFilterAtom,
+  inStockFilterAtom,
+} from "./filterAtoms";
+import {
+  storageOptionsAtom,
+  modelOptionsAtom,
+  colorOptionsAtom,
+} from "./filterOptionsAtoms";
 
-interface SearchModalProps {
+interface FiltersProps {
   onClose: () => void;
 }
 
-export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
+export const Filters: React.FC<FiltersProps> = ({ onClose }) => {
   const [price, setPrice] = useAtom(priceFilterAtom);
-  const [storages, toggleSto] = useAtom(storageFilterAtom);
-  const [models, toggleModel] = useAtom(modelFilterAtom);
-  const [colors, toggleColor] = useAtom(colorFilterAtom);
+  const [storages, setStorages] = useAtom(storageFilterAtom);
+  const [models, setModels] = useAtom(modelFilterAtom);
+  const [colors, setColors] = useAtom(colorFilterAtom);
   const [inStock, setInStock] = useAtom(inStockFilterAtom);
+
   const storageOptions = useAtom(storageOptionsAtom)[0];
   const modelOptions = useAtom(modelOptionsAtom)[0];
   const colorOptions = useAtom(colorOptionsAtom)[0];
+
+  const firstInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    firstInputRef.current?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [onClose]);
+
+function toggleItem<T>(
+  list: T[],
+  setList: React.Dispatch<React.SetStateAction<T[]>>,
+  item: T
+) {
+  setList(list.includes(item) ? list.filter((x) => x !== item) : [...list, item]);
+}
+
 
   return (
     <section
@@ -23,13 +60,14 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
       style={{ backgroundColor: "rgba(3, 8, 21, 0.8)" }}
     >
       <div
-        className="bg-back flex flex-col w-96 gap-2 px-4 py-2 border-4 border-text "
+        className="bg-back flex flex-col w-96 gap-4 px-4 py-3 border-4 border-text"
         onClick={(e) => e.stopPropagation()}
       >
         <section>
           <h3>Цена</h3>
-          <div className="flex gap-2 mt-1 flex-col">
+          <div className="flex flex-col gap-2 mt-1">
             <input
+              ref={firstInputRef}
               className="px-2 py-1 border-4 border-text outline-none"
               type="number"
               placeholder={price[0].toString()}
@@ -49,16 +87,11 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
           <ul className="flex flex-col">
             {storageOptions.map((s) => (
               <li key={s}>
-                <label>
+                <label className="cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={storages.includes(s)}
-                    onChange={() => {
-                      const next = storages.includes(s)
-                        ? storages.filter((x) => x !== s)
-                        : [...storages, s];
-                      toggleSto(next);
-                    }}
+                    onChange={() => toggleItem(storages, setStorages, s)}
                   />
                   {s} ГБ
                 </label>
@@ -72,16 +105,11 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
           <ul className="flex flex-col">
             {modelOptions.map((s) => (
               <li key={s}>
-                <label>
+                <label className="cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={models.includes(s)}
-                    onChange={() => {
-                      const next = models.includes(s)
-                        ? models.filter((x) => x !== s)
-                        : [...models, s];
-                      toggleModel(next);
-                    }}
+                    onChange={() => toggleItem(models, setModels, s)}
                   />
                   {s}
                 </label>
@@ -95,16 +123,11 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
           <ul className="flex flex-col">
             {colorOptions.map((s) => (
               <li key={s}>
-                <label>
+                <label className="cursor-pointer select-none">
                   <input
                     type="checkbox"
                     checked={colors.includes(s)}
-                    onChange={() => {
-                      const next = colors.includes(s)
-                        ? colors.filter((x) => x !== s)
-                        : [...colors, s];
-                      toggleColor(next);
-                    }}
+                    onChange={() => toggleItem(colors, setColors, s)}
                   />
                   {s}
                 </label>
@@ -117,7 +140,7 @@ export const Filters: React.FC<SearchModalProps> = ({ onClose }) => {
           <h3>Наличие</h3>
           <ul>
             <li>
-              <label>
+              <label className="cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={inStock}

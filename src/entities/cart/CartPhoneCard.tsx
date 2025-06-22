@@ -15,6 +15,7 @@ export default function CartPhoneCard(props: PhoneCardProps) {
         <img
           src={data.image.url}
           alt={data.image.alt}
+          loading="lazy"
           className="h-60 border-4 border-white"
         />
         <h3 className="hover:text-primary transition-colors mt-2">

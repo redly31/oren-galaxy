@@ -5,14 +5,14 @@ import type { Phone } from "../../entities/phone/Phone";
 import { useAtom } from "jotai";
 import { searchAtom } from "../../features/search/searchAtom";
 import Loading from "../../shared/components/loading/Loading";
-import { filteredSortedPhonesAtom } from "../../features/filter/filteredSortedPhonesAtom";
+import { filteredSortedPhonesAtom } from "../../features/filter/filteredSortedPhonesAtom";;
 
 export default function PhonesList() {
   const [search, setSearch] = useAtom(searchAtom);
   const [phones] = useAtom(filteredSortedPhonesAtom);
 
-  if(!search && phones.length === 0) {
-    return <Loading/>
+  if (!search && phones.length === 0) {
+    return <Loading />;
   }
 
   return (

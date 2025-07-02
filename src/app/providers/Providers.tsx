@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Loading from "../../shared/components/loading/Loading";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorSign from "../../shared/components/error/ErrorSign";
+import { HelmetProvider } from "react-helmet-async";
 
 export default function Providers() {
   const queryClient = new QueryClient();
@@ -14,8 +15,10 @@ export default function Providers() {
     <QueryClientProvider client={queryClient}>
       <ErrorBoundary fallback={<ErrorSign/>}>
         <Suspense fallback={<Loading/>}>
-        <AnalyticsTracker router={router} />
-        <RouterProvider router={router} />
+          <HelmetProvider>
+            <AnalyticsTracker router={router} />
+            <RouterProvider router={router} />
+          </HelmetProvider>
       </Suspense>
       </ErrorBoundary>
       

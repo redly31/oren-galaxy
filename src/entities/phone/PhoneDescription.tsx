@@ -4,7 +4,7 @@ import type { Phone } from "./Phone";
 type PhoneDescriptionProps = {
   data: Phone;
   children: ReactNode;
-}
+};
 
 export default function PhoneDescription(props: PhoneDescriptionProps) {
   const { data, children } = props;
@@ -38,9 +38,7 @@ export default function PhoneDescription(props: PhoneDescriptionProps) {
               </span>
             </div>
 
-            <div className="flex flex-col">
-              {children}
-            </div>
+            <div className="flex flex-col">{children}</div>
           </section>
         </section>
         <section className="w-full sm:w-2/3 md:w-1/2">

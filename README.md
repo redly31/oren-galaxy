@@ -1,4 +1,4 @@
-<h3>Магазин гаджетов Samsung</h3>
+<h3>Магазин гаджетов Samsung (2025)</h3>
 <h3>Стек</h3>
 <li>React + TypeScript</li>
 <li>Vite</li>

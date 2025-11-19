@@ -1,7 +1,4 @@
-import { atom } from "jotai";
-import type { SortOption } from "./SortOption";
+import { atom } from "jotai"
+export type SortOption = "priceAsc" | "priceDesc" | "releaseDate"
 
-
-export const sortingAtom = atom<SortOption>(
-  "releaseDate"
-);
+export const sortingAtom = atom<SortOption>("releaseDate")

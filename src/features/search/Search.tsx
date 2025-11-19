@@ -1,53 +1,51 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
-import { searchAtom } from "./searchAtom";
-import { useSetAtom } from "jotai";
-import { debounce } from "lodash";
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
+import { searchAtom } from "./searchAtom"
+import { useSetAtom } from "jotai"
+import { debounce } from "lodash"
 
 interface SearchModalProps {
-  onClose: () => void;
+  onClose: () => void
 }
 
 export const Search: React.FC<SearchModalProps> = ({ onClose }) => {
-  const setSearch = useSetAtom(searchAtom);
-  const [searchInputValue, setSearchInputValue] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const setSearch = useSetAtom(searchAtom)
+  const [searchInputValue, setSearchInputValue] = useState("")
+  const inputRef = useRef<HTMLInputElement>(null)
 
-  // Мемоизируем дебаунс, чтобы не пересоздавать его при каждом рендере
   const debouncedSetSearch = useMemo(
     () =>
       debounce((text: string) => {
-        setSearch(text);
+        setSearch(text)
       }, 500),
     [setSearch]
-  );
+  )
 
-  // Обработчик изменения инпута
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const value = e.target.value;
-      setSearchInputValue(value);
-      debouncedSetSearch(value);
+      const value = e.target.value
+      setSearchInputValue(value)
+      debouncedSetSearch(value)
     },
     [debouncedSetSearch]
-  );
+  )
 
   useEffect(() => {
-    inputRef.current?.focus();
+    inputRef.current?.focus()
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
+        e.preventDefault()
+        onClose()
       }
-    };
+    }
 
-    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("keydown", onKeyDown)
 
     return () => {
-      debouncedSetSearch.cancel();
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [debouncedSetSearch, onClose]);
+      debouncedSetSearch.cancel()
+      document.removeEventListener("keydown", onKeyDown)
+    }
+  }, [debouncedSetSearch, onClose])
 
   return (
     <section
@@ -71,5 +69,5 @@ export const Search: React.FC<SearchModalProps> = ({ onClose }) => {
         />
       </div>
     </section>
-  );
-};
+  )
+}

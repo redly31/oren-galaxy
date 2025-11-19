@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
-import type { Phone } from "./Phone";
+import type { ReactNode } from "react"
+import type { Phone } from "../../../shared/model/Phone"
 
 type PhoneDescriptionProps = {
-  data: Phone;
-  children: ReactNode;
-};
+  data: Phone
+  children: ReactNode
+}
 
 export default function PhoneDescription(props: PhoneDescriptionProps) {
-  const { data, children } = props;
+  const { data, children } = props
 
   return (
     <article className="px-4 mx-auto py-8">
@@ -83,5 +83,5 @@ export default function PhoneDescription(props: PhoneDescriptionProps) {
         </section>
       </section>
     </article>
-  );
+  )
 }

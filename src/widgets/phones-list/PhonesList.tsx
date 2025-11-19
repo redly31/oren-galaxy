@@ -1,18 +1,18 @@
-import PhoneCard from "../../entities/phone/PhoneCard";
-import AddToCartButton from "../../features/add-to-cart-button/AddToCartButton";
-import PaymentButton from "../../features/payment-button/PaymentButton";
-import type { Phone } from "../../entities/phone/Phone";
-import { useAtom } from "jotai";
-import { searchAtom } from "../../features/search/searchAtom";
-import Loading from "../../shared/components/loading/Loading";
-import { filteredSortedPhonesAtom } from "../../features/filter/filteredSortedPhonesAtom";;
+import PhoneCard from "../../entities/phone/ui/PhoneCard"
+import AddToCartButton from "../../features/add-to-cart-button/AddToCartButton"
+import PaymentButton from "../../features/payment-button/PaymentButton"
+import { useAtom } from "jotai"
+import { searchAtom } from "../../features/search/searchAtom"
+import Loading from "../../shared/components/loading/Loading"
+import { phonesListAtom } from "../../features/phones-querying/phonesQuerying"
+import type { Phone } from "../../shared/model/Phone"
 
 export default function PhonesList() {
-  const [search, setSearch] = useAtom(searchAtom);
-  const [phones] = useAtom(filteredSortedPhonesAtom);
+  const [search, setSearch] = useAtom(searchAtom)
+  const [phones] = useAtom(phonesListAtom)
 
   if (!search && phones.length === 0) {
-    return <Loading />;
+    return <Loading />
   }
 
   return (
@@ -29,16 +29,14 @@ export default function PhonesList() {
           </button>
         </div>
       )}
-      <div className="w-full flex md:justify-start justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {phones.map((phone: Phone) => (
-            <PhoneCard data={phone} key={phone.id}>
-              <PaymentButton productId={phone.id} />
-              <AddToCartButton productId={phone.id} />
-            </PhoneCard>
-          ))}
-        </div>
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:justify-start justify-center">
+        {phones.map((phone: Phone) => (
+          <PhoneCard data={phone} key={phone.id}>
+            <PaymentButton productId={phone.id} />
+            <AddToCartButton productId={phone.id} />
+          </PhoneCard>
+        ))}
       </div>
     </div>
-  );
+  )
 }

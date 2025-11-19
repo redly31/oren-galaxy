@@ -1,14 +1,14 @@
-import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
-import type { Phone } from "../phone/Phone";
+import type { ReactNode } from "react"
+import { Link } from "react-router-dom"
+import type { Phone } from "../../shared/model/Phone"
 
 type PhoneCardProps = {
-  data: Phone;
-  children: ReactNode;
-};
+  data: Phone
+  children: ReactNode
+}
 
 export default function CartPhoneCard(props: PhoneCardProps) {
-    const { data, children } = props;
+  const { data, children } = props
   return (
     <article className="mt-4 flex flex-col justify-between max-w-xs">
       <section className="flex flex-col items-center">
@@ -36,5 +36,5 @@ export default function CartPhoneCard(props: PhoneCardProps) {
         <div className="flex flex-col">{children}</div>
       </section>
     </article>
-  );
+  )
 }

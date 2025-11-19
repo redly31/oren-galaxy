@@ -1,29 +1,28 @@
-import React, { useEffect, useRef } from "react";
-import { useAtom } from "jotai";
-import type { SortOption } from "./SortOption";
-import { sortingAtom } from "./sortingAtom";
+import React, { useEffect, useRef } from "react"
+import { useAtom } from "jotai"
+import { sortingAtom, type SortOption } from "./sortingAtom"
 
 interface SortingModalProps {
-  onClose: () => void;
+  onClose: () => void
 }
 
 export const Sorting: React.FC<SortingModalProps> = ({ onClose }) => {
-  const [sortBy, setSortBy] = useAtom(sortingAtom);
-  const selectRef = useRef<HTMLSelectElement>(null);
+  const [sortBy, setSortBy] = useAtom(sortingAtom)
+  const selectRef = useRef<HTMLSelectElement>(null)
 
   useEffect(() => {
-    selectRef.current?.focus();
+    selectRef.current?.focus()
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
+        e.preventDefault()
+        onClose()
       }
-    };
+    }
 
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [onClose])
 
   return (
     <section
@@ -47,5 +46,5 @@ export const Sorting: React.FC<SortingModalProps> = ({ onClose }) => {
         </select>
       </div>
     </section>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
-import { useAtom } from 'jotai'
-import { cartAtom } from './cartAtom'
-import type { Phone } from '../phone/Phone'
-import { getPhones } from '../phone/PhoneAPI'
-import { useQuery } from 'react-query'
+import { useAtom } from "jotai"
+import { cartAtom } from "./cartAtom"
+import { useQuery } from "react-query"
+import { getPhones } from "../../shared/api/phone"
+import type { Phone } from "../../shared/model/Phone"
 
 export function useCartPhones(): {
   items: Phone[]
@@ -10,7 +10,7 @@ export function useCartPhones(): {
   const [cart] = useAtom(cartAtom)
 
   const { data: phones = [] } = useQuery<Phone[]>({
-    queryKey: ['phones'],
+    queryKey: ["phones"],
     queryFn: getPhones,
     suspense: true,
   })

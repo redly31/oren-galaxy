@@ -1,157 +1,118 @@
-import React, { useEffect, useRef } from "react";
-import { useAtom } from "jotai";
-import {
-  priceFilterAtom,
-  storageFilterAtom,
-  modelFilterAtom,
-  colorFilterAtom,
-  inStockFilterAtom,
-} from "./filterAtoms";
-import {
-  storageOptionsAtom,
-  modelOptionsAtom,
-  colorOptionsAtom,
-} from "./filterOptionsAtoms";
+import React, { useEffect, useRef } from "react"
+import { useAtom, useAtomValue } from "jotai"
+import { FilterSection } from "./FilterSection"
+import { filterOptionsAtom, filtersAtom, type FilterState } from "./filtersAtom"
 
-interface FiltersProps {
-  onClose: () => void;
-}
+export const Filters: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const [filters, setFilters] = useAtom(filtersAtom)
+  const options = useAtomValue(filterOptionsAtom)
 
-export const Filters: React.FC<FiltersProps> = ({ onClose }) => {
-  const [price, setPrice] = useAtom(priceFilterAtom);
-  const [storages, setStorages] = useAtom(storageFilterAtom);
-  const [models, setModels] = useAtom(modelFilterAtom);
-  const [colors, setColors] = useAtom(colorFilterAtom);
-  const [inStock, setInStock] = useAtom(inStockFilterAtom);
-
-  const storageOptions = useAtom(storageOptionsAtom)[0];
-  const modelOptions = useAtom(modelOptionsAtom)[0];
-  const colorOptions = useAtom(colorOptionsAtom)[0];
-
-  const firstInputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    firstInputRef.current?.focus();
+    inputRef.current?.focus()
+    const onKeyDown = (e: KeyboardEvent) => e.key === "Escape" && onClose()
+    document.addEventListener("keydown", onKeyDown)
+    return () => document.removeEventListener("keydown", onKeyDown)
+  }, [onClose])
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        e.preventDefault();
-        onClose();
-      }
-    };
+  const toggleFilter = (key: keyof FilterState, value: string | number) => {
+    setFilters((prev) => {
+      const list = prev[key] as (string | number)[]
 
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
+      const newList = list.includes(value)
+        ? list.filter((item) => item !== value)
+        : [...list, value]
 
-function toggleItem<T>(
-  list: T[],
-  setList: React.Dispatch<React.SetStateAction<T[]>>,
-  item: T
-) {
-  setList(list.includes(item) ? list.filter((x) => x !== item) : [...list, item]);
-}
+      return { ...prev, [key]: newList }
+    })
+  }
 
+  const updatePrice = (index: 0 | 1, val: string) => {
+    setFilters((prev) => {
+      const newPrice = [...prev.price] as [number, number]
+      newPrice[index] = +val
+      return { ...prev, price: newPrice }
+    })
+  }
 
   return (
-    <section
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50"
+    <div
+      className="fixed inset-0 flex items-center justify-center bg-black/80 z-50"
       onClick={onClose}
-      style={{ backgroundColor: "rgba(3, 8, 21, 0.8)" }}
     >
       <div
         className="bg-back flex flex-col w-96 gap-4 px-4 py-3 border-4 border-text"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Цена */}
         <section>
-          <h3>Цена</h3>
-          <div className="flex flex-col gap-2 mt-1">
-            <input
-              ref={firstInputRef}
-              className="px-2 py-1 border-4 border-text outline-none"
-              type="number"
-              placeholder={price[0].toString()}
-              onChange={(e) => setPrice([+e.target.value, price[1]])}
-            />
-            <input
-              className="px-2 py-1 border-4 border-text outline-none"
-              type="number"
-              placeholder={price[1].toString()}
-              onChange={(e) => setPrice([price[0], +e.target.value])}
-            />
+          <h3 className="font-bold">Цена</h3>
+          <div className="flex gap-2 mt-1">
+            {[0, 1].map((idx) => (
+              <input
+                key={idx}
+                ref={idx === 0 ? inputRef : null}
+                className="w-full px-2 py-1 border-2 border-text outline-none"
+                type="number"
+                placeholder={String(filters.price[idx])}
+                onChange={(e) => updatePrice(idx as 0 | 1, e.target.value)}
+              />
+            ))}
           </div>
         </section>
 
+        {/* Группы фильтров */}
+        <FilterSection
+          title="Память"
+          options={options.storage}
+          selected={filters.storage}
+          onToggle={(v) => toggleFilter("storage", v)}
+          formatLabel={(s) => `${s} ГБ`}
+        />
+        <FilterSection
+          title="Модели"
+          options={options.model}
+          selected={filters.model}
+          onToggle={(v) => toggleFilter("model", v)}
+        />
+        <FilterSection
+          title="Цвета"
+          options={options.color}
+          selected={filters.color}
+          onToggle={(v) => toggleFilter("color", v)}
+        />
+
+        {/* Наличие */}
         <section>
-          <h3>Память</h3>
-          <ul className="flex flex-col">
-            {storageOptions.map((s) => (
-              <li key={s}>
-                <label className="cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    checked={storages.includes(s)}
-                    onChange={() => toggleItem(storages, setStorages, s)}
-                  />
-                  {s} ГБ
-                </label>
-              </li>
-            ))}
-          </ul>
+          <h3 className="font-bold">Наличие</h3>
+          <label className="cursor-pointer select-none flex gap-2 items-center">
+            <input
+              type="checkbox"
+              checked={filters.inStock}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, inStock: e.target.checked }))
+              }
+            />
+            В наличии
+          </label>
         </section>
 
-        <section>
-          <h3>Модели</h3>
-          <ul className="flex flex-col">
-            {modelOptions.map((s) => (
-              <li key={s}>
-                <label className="cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    checked={models.includes(s)}
-                    onChange={() => toggleItem(models, setModels, s)}
-                  />
-                  {s}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3>Цвета</h3>
-          <ul className="flex flex-col">
-            {colorOptions.map((s) => (
-              <li key={s}>
-                <label className="cursor-pointer select-none">
-                  <input
-                    type="checkbox"
-                    checked={colors.includes(s)}
-                    onChange={() => toggleItem(colors, setColors, s)}
-                  />
-                  {s}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h3>Наличие</h3>
-          <ul>
-            <li>
-              <label className="cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={inStock}
-                  onChange={(e) => setInStock(e.target.checked)}
-                />
-                В наличии
-              </label>
-            </li>
-          </ul>
-        </section>
+        <button
+          className="mt-2 py-1 px-2 border-2 border-text font-bold hover:bg-gray-200"
+          onClick={() =>
+            setFilters({
+              price: [0, 999000],
+              storage: [],
+              model: [],
+              color: [],
+              inStock: false,
+            })
+          }
+        >
+          Сбросить фильтры
+        </button>
       </div>
-    </section>
-  );
-};
+    </div>
+  )
+}

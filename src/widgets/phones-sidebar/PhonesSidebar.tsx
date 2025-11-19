@@ -1,38 +1,53 @@
-import { useState } from "react";
-import { Filters } from "../../features/filter/Filters";
-import { Search } from "../../features/search/Search";
-import { Sorting } from "../../features/sorting/Sorting";
+import { useState } from "react"
+import { Filters } from "../../features/filter/Filters"
+import { Search } from "../../features/search/Search"
+import { Sorting } from "../../features/sorting/Sorting"
+
+type SidebarView = "search" | "sorting" | "filters" | null
+
+const SIDEBAR_TOOLS = [
+  {
+    id: "search" as const,
+    icon: "/search.svg",
+    alt: "Поиск",
+    Component: Search,
+  },
+  {
+    id: "sorting" as const,
+    icon: "/sorting.svg",
+    alt: "Сортировка",
+    Component: Sorting,
+  },
+  {
+    id: "filters" as const,
+    icon: "/filter.svg",
+    alt: "Фильтры",
+    Component: Filters,
+  },
+]
 
 export default function PhonesSidebar() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-  const [isSortingOpen, setIsSortingOpen] = useState(false);
-  const openSearch = () => setIsSearchOpen(true);
-  const closeSearch = () => setIsSearchOpen(false);
+  const [activeView, setActiveView] = useState<SidebarView>(null)
 
-  const openSorting = () => setIsSortingOpen(true);
-  const closeSorting = () => setIsSortingOpen(false);
-
-  const openFilters = () => setIsFiltersOpen(true);
-  const closeFilters = () => setIsFiltersOpen(false);
+  const closeView = () => setActiveView(null)
 
   return (
     <aside className="flex flex-col gap-2">
       <section className="flex gap-2">
-        <button className="cursor-pointer" onClick={openSearch}>
-          <img className="w-8 h-8" src="/search.svg" alt="Поиск" />
-        </button>
-        <button className="cursor-pointer" onClick={openSorting}>
-          <img className="w-8 h-8" src="/sorting.svg" alt="Сортировка" />
-        </button>
-        <button className="cursor-pointer" onClick={openFilters}>
-          <img className="w-8 h-8" src="/filter.svg" alt="Сортировка" />
-        </button>
+        {SIDEBAR_TOOLS.map((tool) => (
+          <button
+            key={tool.id}
+            className="cursor-pointer"
+            onClick={() => setActiveView(tool.id)}
+          >
+            <img className="w-8 h-8" src={tool.icon} alt={tool.alt} />
+          </button>
+        ))}
       </section>
 
-      {isSortingOpen && <Sorting onClose={closeSorting} />}
-      {isSearchOpen && <Search onClose={closeSearch} />}
-      {isFiltersOpen && <Filters onClose={closeFilters} />}
+      {activeView === "sorting" && <Sorting onClose={closeView} />}
+      {activeView === "search" && <Search onClose={closeView} />}
+      {activeView === "filters" && <Filters onClose={closeView} />}
     </aside>
-  );
+  )
 }

@@ -1,1 +1,0 @@
-export type SortOption = "priceAsc" | "priceDesc" | "releaseDate"
